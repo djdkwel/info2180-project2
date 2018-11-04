@@ -36,21 +36,12 @@ window.onload = function() {
   		  x=0;
   		  y=y-100;
   	  }
-     }
+    }// end of for loop to position Background
 
-/*  for (var j= 0; j < c.length; j++ ){
-    xaxis = x+"px"; // horizantal position
-    yaxis = y+"px";//veritical position
-    posit = xaxis + " " + yaxis;
-    console.log(posit);
-    c[j].style.backgroundPostion = posit;
-    x = x - 100;
-    count = count + 1;
-    if (count%4 == 0){
-      x=0;
-      y = y - 100;
-    }// end of if statement
-  }//end of background position for loop*/
+    c.onmouserover = function(){for(){
+
+    }// end of for loop to highlight numbers
+  }// end of mouseover function
 
 
 }// End of main function
