@@ -5,7 +5,9 @@ window.onload = function() {
   var y = 0; // vertical position
   var count = 0;
   var blank = ["300px","300px"];
-  var blankInt = [parseInt(blank[0]),parseInt(blank[1])]
+  var blankInt = [parseInt(blank[0]),parseInt(blank[1])];
+  var shufflebutton = document.getElementById("shufflebutton");
+  var N = 15;
 
   for (var i = 0; i<c.length; i++){
 
@@ -42,7 +44,7 @@ window.onload = function() {
 
 
   for(let i=0;i<c.length;i++){
-    c[i].onclick = function(){
+    c[i].onclick = function (){
       if (isMovable(c[i])){
       let positionTop = c[i].style.top;
       let positionLeft = c[i].style.left;
@@ -59,9 +61,7 @@ window.onload = function() {
     };// end of move function
   }// end of for loop
 
-  for (var a = 0; a < c.length; a++){
- $(c[a]).first().addClass("movablepiece");// adding movablepiece function;
-}// end of for loop for highlighting pieces
+
   function getCoor(piece){
     return [parseInt(piece.style.top),parseInt(piece.style.left)];
   }
@@ -78,6 +78,32 @@ window.onload = function() {
     return false;
   }
   }
+
+  for (var a = 0; a < c.length; a++){
+    if(isMovable(c[a])==true){
+    $(c[a]).first().addClass("movablepiece");// adding movablepiece function;
+  }// end of if statement
+  c[a].onmouseleave = function(){
+    $(c[a]).first().remove("movablepiece");
+    console.log("LEFT");
+}
+}// end of for loop for highlighting pieces
+  shufflebutton.onclick = function(){
+    for(let i=0;i<300; i++){
+        var number = Math.floor(Math.random()*16);
+        let positionTop = c[number].style.top;
+        let positionLeft = c[number].style.left;
+
+        c[number].style.top = blank[0];
+        c[number].style.left = blank[1];
+
+        blank[0] = positionTop;
+        blankInt[0] = parseInt(blank[0]);
+        blank[1] = positionLeft;
+        blankInt[1] = parseInt(blank[1]);
+
+      }// end of move function
+    }// end of for loop
 }// End of main function
 
 
