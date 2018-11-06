@@ -4,6 +4,7 @@ window.onload = function() {
   var x = 0; // horizantal position
   var y = 0; // vertical position
   var count = 0;
+  var blank = ["300px","300px"];
 
   for (var i = 0; i<c.length; i++){
 
@@ -38,10 +39,21 @@ window.onload = function() {
   	  }
     }// end of for loop to position Background
 
-    for (var a = 0; a < c.length; a++){
-      $(c[a]).first().addClass("movablepiece");// adding movablepiece function;
-    }// end of for loop for highlighting pieces
 
+  for(let i=0;i<c.length;i++){
+    c[i].onclick = function(){
+      let positionTop = c[i].style.top;
+      let positionLeft = c[i].style.left;
+
+      c[i].style.top = blank[0];
+      c[i].style.left = blank[1];
+
+      blank[0] = positionTop;
+      blank[1] = positionLeft;
+
+    };// end of move function
+  }// end of for loop
 }// End of main function
+
 
 //window.onload = square();
