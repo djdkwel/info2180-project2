@@ -5,6 +5,7 @@ window.onload = function() {
   var y = 0; // vertical position
   var count = 0;
   var blank = ["300px","300px"];
+  var blankInt = [parseInt(blank[0]),parseInt(blank[1])]
 
   for (var i = 0; i<c.length; i++){
 
@@ -42,6 +43,7 @@ window.onload = function() {
 
   for(let i=0;i<c.length;i++){
     c[i].onclick = function(){
+      if (isMovable(c[i])){
       let positionTop = c[i].style.top;
       let positionLeft = c[i].style.left;
 
@@ -49,7 +51,10 @@ window.onload = function() {
       c[i].style.left = blank[1];
 
       blank[0] = positionTop;
+      blankInt[0] = parseInt(blank[0]);
       blank[1] = positionLeft;
+      blankInt[1] = parseInt(blank[1]);
+    }
 
     };// end of move function
   }// end of for loop
@@ -57,6 +62,22 @@ window.onload = function() {
   for (var a = 0; a < c.length; a++){
  $(c[a]).first().addClass("movablepiece");// adding movablepiece function;
 }// end of for loop for highlighting pieces
+  function getCoor(piece){
+    return [parseInt(piece.style.top),parseInt(piece.style.left)];
+  }
+  console.log(isMovable(c[14]));
+
+
+
+  function isMovable(piece){
+    let a = getCoor(piece);
+  if (a[0]+100 == blankInt[0] && a[1] == blankInt[1] || a[0]-100 == blankInt[0] && a[1] == blankInt[1]  || a[0] == blankInt[0] && a[1]-100 == blankInt[1] || a[0] == blankInt[0] && a[1]+100 == blankInt[1] ){
+    return true;
+  }
+  else{
+    return false;
+  }
+  }
 }// End of main function
 
 
