@@ -53,6 +53,10 @@ window.onload = function() {
 
     };// end of move function
   }// end of for loop
+
+  for (var a = 0; a < c.length; a++){
+ $(c[a]).first().addClass("movablepiece");// adding movablepiece function;
+}// end of for loop for highlighting pieces
 }// End of main function
 
 
