@@ -1,3 +1,4 @@
+//Extra Feature ChangeBackground
 window.onload = function() {
   var puzzlearea = $('#puzzlearea');
   var c = puzzlearea.children();
@@ -104,6 +105,86 @@ window.onload = function() {
 
       }// end of move function
     }// end of for loopS
+    function backgroundChange(){
+       x = Math.floor(Math.random()*3);
+       for(var j=0; j<c.length; j++){
+          if (x==0){
+    	  var t=0;
+    	  var h=0;
+    	   count=0;
+    	   for (var i = 0; i<c.length; i++){
+
+          $(c[i]).first().addClass("puzzlepiece");
+    	     c[i].style.backgroundImage="url('background.jpg')";
+    	      c[i].style.backgroundSize="400px 400px";
+          c[i].style.left = h + "px";
+          c[i].style.top = t + "px";
+           //console.log(x + " " + y);
+          h+=100;
+          count+= 1;
+      if (count%4 == 0){
+        t += 100;
+        h=0;
+      }
+      }
+    	  }
+          else if (x==1){
+    	  var t=0;
+    	  var h=0;
+    	  count=0;
+    	   for (var i = 0; i<c.length; i++){
+
+          $(c[i]).first().addClass("puzzlepiece");
+    	  c[i].style.backgroundImage="url('pokemon-anime-wallpaper.jpg')";
+    	  c[i].style.backgroundSize="400px 400px";
+          c[i].style.left = h + "px";
+          c[i].style.top = t + "px";
+           //console.log(x + " " + y);
+          h+=100;
+          count+= 1;
+      if (count%4 == 0){
+        t += 100;
+        h=0;
+      }
+      }
+    	  }
+    	else if (x==2){
+    		var t=0;
+    	  var h=0;
+    	  count=0;
+    	   for (var i = 0; i<c.length; i++){
+
+          $(c[i]).first().addClass("puzzlepiece");
+    	  c[i].style.backgroundImage="url('background2.jpg')";
+    	  c[i].style.backgroundSize="400px 400px";
+          c[i].style.left = h + "px";
+          c[i].style.top = t + "px";
+           //console.log(x + " " + y);
+          h+=100;
+          count+= 1;
+      if (count%4 == 0){
+        t += 100;
+        h=0;
+      }
+      }
+    	}
+
+
+       }
+
+      }
+
+     function changeButton(){// this set up the botoon that allows the image to be changed
+    	var $input = $('<input type="button" value="Change Image" />');
+    	$input.click(function(){
+    		backgroundChange();
+    	});
+
+    	$input.appendTo($("#controls"));
+
+    }
+     changeButton();
+
 }// End of main function
 
 
