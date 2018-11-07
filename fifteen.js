@@ -44,7 +44,7 @@ window.onload = function() {
 
 
   for(let i=0;i<c.length;i++){
-    c[i].onclick = function (){
+      c[i].onclick = function (){
       if (isMovable(c[i])){
       let positionTop = c[i].style.top;
       let positionLeft = c[i].style.left;
@@ -103,7 +103,7 @@ window.onload = function() {
         blankInt[1] = parseInt(blank[1]);
 
       }// end of move function
-    }// end of for loop
+    }// end of for loopS
 }// End of main function
 
 
